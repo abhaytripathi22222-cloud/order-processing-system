@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Shipment {
+  id             Int      @id @default(autoincrement())
+  orderId        Int
+  orderNumber    String
+  trackingNumber String   @unique
+  carrier        String
+  status         String
+  createdAt      DateTime @default(now())
+}
+
+model ProcessedEvent {
+  id Int @id @default(autoincrement())
+
+  eventId String @unique
+
+  eventType String
+
+  createdAt DateTime @default(now())
+}
