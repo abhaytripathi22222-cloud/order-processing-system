@@ -13,7 +13,7 @@ async function bootstrap() {
   await startNotificationConsumer();
 
   app.listen(PORT, () => {
-    console.log(`🚀 Notification Service running on ${PORT}`);
+    console.log(`Notification Service running on ${PORT}`);
   });
 }
 

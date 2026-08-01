@@ -24,7 +24,7 @@ export async function startInventoryConsumer() {
 
 
       console.log("================================");
-      console.log("📦 EVENT RECEIVED");
+      console.log("EVENT RECEIVED");
       console.log("Routing:", routingKey);
       console.log(order);
       console.log("================================");
@@ -83,13 +83,13 @@ const retryCount =
       }
     );
 
-    console.log(`🔄 Retry ${retryCount + 1}/3`);
+    console.log(`Retry ${retryCount + 1}/3`);
 
   } else {
 
     channel.nack(msg, false, false);
 
-    console.log("💀 Max retries reached. Sent to DLQ.");
+    console.log("Max retries reached. Sent to DLQ.");
 
     return;
   }
@@ -100,7 +100,7 @@ const retryCount =
   });
 
 
-  console.log("👂 Inventory Consumer Started");
+  console.log("Inventory Consumer Started");
 
 }
 
@@ -148,7 +148,7 @@ async function reserveInventory(order:any){
   });
 
 
-  console.log("✅ Inventory Reserved");
+  console.log("Inventory Reserved");
 
 
   getChannel().publish(
@@ -169,7 +169,7 @@ async function reserveInventory(order:any){
 
 
   console.log(
-    "📤 inventory.reserved published"
+    "inventory.reserved published"
   );
 
 }
@@ -180,7 +180,7 @@ async function reserveInventory(order:any){
 async function releaseInventory(order:any){
 
 
-  console.log("♻ Releasing Inventory");
+  console.log("Releasing Inventory");
   console.log(order);
 
 
@@ -237,7 +237,7 @@ async function releaseInventory(order:any){
 
 
   console.log(
-    "♻ Inventory Released"
+    "Inventory Released"
   );
 
 
@@ -260,7 +260,7 @@ async function releaseInventory(order:any){
 
 
   console.log(
-    "📤 inventory.released published"
+    "inventory.released published"
   );
 
 }

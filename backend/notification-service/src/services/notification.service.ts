@@ -6,7 +6,7 @@ export class NotificationService {
  async send(shipment:any){
 
  console.log(
-   `[${shipment.correlationId}] 📧 EMAIL SENT`
+   `[${shipment.correlationId}] EMAIL SENT`
  );
 
  return this.repository.create({

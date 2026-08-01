@@ -31,7 +31,7 @@ export async function startNotificationConsumer() {
 
 
         console.log(
-          `[${correlationId}] 📩 Shipment Event Received`
+          `[${correlationId}] Shipment Event Received`
         );
 
 
@@ -48,7 +48,7 @@ export async function startNotificationConsumer() {
         if (processed) {
 
           console.log(
-            `[${correlationId}] ⚠ Duplicate Event Ignored`
+            `[${correlationId}] Duplicate Event Ignored`
           );
 
           channel.ack(msg);
@@ -78,7 +78,7 @@ export async function startNotificationConsumer() {
 
 
         console.log(
-          `[${correlationId}] ✅ Notification Event Processed`
+          `[${correlationId}] Notification Event Processed`
         );
 
 
@@ -109,7 +109,7 @@ export async function startNotificationConsumer() {
 
 
   console.log(
-    "👂 Notification Consumer Started"
+    "Notification Consumer Started"
   );
 
 }

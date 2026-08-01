@@ -75,7 +75,7 @@ await channel.bindQueue(
   "order-exchange",
   "inventory.release"
 );
-  console.log("✅ Inventory RabbitMQ Connected");
+  console.log("Inventory RabbitMQ Connected");
 }
 
 export function getChannel() {
