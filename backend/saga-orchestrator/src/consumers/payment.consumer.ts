@@ -28,5 +28,5 @@ export async function startPaymentConsumer() {
     }
   });
 
-  console.log("👂 Payment Consumer Started");
+  console.log("Payment Consumer Started");
 }

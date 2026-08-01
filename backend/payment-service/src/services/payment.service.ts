@@ -3,7 +3,7 @@ import { getChannel } from "../config/rabbitmq";
 export class PaymentService {
   async process(order: any) {
     console.log("================================");
-    console.log(`[${order.correlationId}] 💳 Processing Payment`);
+    console.log(`[${order.correlationId}] Processing Payment`);
     console.log(order.orderNumber);
     console.log("================================");
 
@@ -11,7 +11,7 @@ export class PaymentService {
     const paymentSuccess = false;
 
     if (!paymentSuccess) {
-      console.log("❌ Payment Failed");
+      console.log("Payment Failed");
 
       const paymentEvent = {
         orderId: order.orderId,
@@ -35,13 +35,13 @@ export class PaymentService {
       );
 
       console.log(
-        `[${order.correlationId}] 📤 payment.failed published`
+        `[${order.correlationId}] payment.failed published`
       );
 
       return;
     }
 
-    console.log("✅ Payment Successful");
+    console.log("Payment Successful");
 
     const paymentEvent = {
       orderId: order.orderId,
@@ -65,7 +65,7 @@ export class PaymentService {
     );
 
     console.log(
-      `[${order.correlationId}] 📤 payment.completed published`
+      `[${order.correlationId}] payment.completed published`
     );
   }
 }

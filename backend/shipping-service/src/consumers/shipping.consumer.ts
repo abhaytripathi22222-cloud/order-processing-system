@@ -21,12 +21,12 @@ export async function startShippingConsumer() {
 
       const eventId = payment.correlationId;
 
-      // ✅ Idempotency Check
+      // Idempotency Check
       const exists = await processedRepository.find(eventId);
 
       if (exists) {
         console.log(
-          `[${eventId}] ⚠ Duplicate payment.completed ignored`
+          `[${eventId}] Duplicate payment.completed ignored`
         );
 
         channel.ack(msg);
@@ -34,7 +34,7 @@ export async function startShippingConsumer() {
       }
 
       console.log(
-        `[${eventId}] 📦 Creating Shipment`
+        `[${eventId}] Creating Shipment`
       );
 
       const shipment = await shippingService.ship(payment);
@@ -52,7 +52,7 @@ export async function startShippingConsumer() {
       );
 
       console.log(
-        `[${eventId}] 📤 shipment.created published`
+        `[${eventId}] shipment.created published`
       );
 
       // Save processed event
@@ -62,15 +62,15 @@ export async function startShippingConsumer() {
       );
 
       console.log(
-        `[${eventId}] ✅ Event marked as processed`
+        `[${eventId}] Event marked as processed`
       );
 
-      // ✅ ACK on success
+      // ACK on success
       channel.ack(msg);
 
     } catch (error: any) {
       console.error(
-        "❌ Shipping Error:",
+        "Shipping Error:",
         error.message
       );
 
@@ -79,5 +79,5 @@ export async function startShippingConsumer() {
     }
   });
 
-  console.log("👂 Shipping Consumer Started");
+  console.log("Shipping Consumer Started");
 }

@@ -18,7 +18,7 @@ async function bootstrap() {
   await startShippingConsumer();
 
   app.listen(PORT, () => {
-    console.log(`🚀 Saga running on ${PORT}`);
+    console.log(`Saga running on ${PORT}`);
   });
 }
 

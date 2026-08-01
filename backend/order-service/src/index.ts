@@ -20,11 +20,11 @@ async function bootstrap() {
   console.log("3. Consumer Started");
 
   app.listen(PORT, () => {
-    console.log(`🚀 Order Service running on port ${PORT}`);
+    console.log(`Order Service running on port ${PORT}`);
   });
 
 }
 
 bootstrap().catch((err) => {
-  console.error("❌ Failed to start Order Service:", err);
+  console.error("Failed to start Order Service:", err);
 });

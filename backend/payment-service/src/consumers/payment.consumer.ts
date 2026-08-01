@@ -15,7 +15,7 @@ export async function startPaymentConsumer() {
   msg.content.toString()
 );
 
-      console.log("💳 Processing Payment...");
+      console.log("Processing Payment...");
       console.log(reservation);
 
       // PaymentService will publish payment.completed or payment.failed
@@ -23,11 +23,11 @@ export async function startPaymentConsumer() {
 
       channel.nack(msg, false, false);
     } catch (error: any) {
-      console.error("❌ Payment Consumer Error:", error.message);
+      console.error("Payment Consumer Error:", error.message);
 
       channel.nack(msg, false, false);
     }
   });
 
-  console.log("👂 Payment Consumer Started");
+  console.log("Payment Consumer Started");
 }

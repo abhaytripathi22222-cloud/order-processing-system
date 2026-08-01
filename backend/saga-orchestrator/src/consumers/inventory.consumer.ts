@@ -21,5 +21,5 @@ export async function startInventoryConsumer() {
     }
   });
 
-  console.log("👂 Inventory Consumer Started");
+  console.log("Inventory Consumer Started");
 }

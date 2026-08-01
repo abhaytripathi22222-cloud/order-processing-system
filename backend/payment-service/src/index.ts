@@ -13,7 +13,7 @@ async function bootstrap() {
   await startPaymentConsumer();
 
   app.listen(PORT, () => {
-    console.log(`🚀 Payment Service running on ${PORT}`);
+    console.log(`Payment Service running on ${PORT}`);
   });
 }
 

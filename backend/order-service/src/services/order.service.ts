@@ -35,7 +35,7 @@ export class OrderService {
     );
 
     console.log(
-      `[${correlationId}] 📤 order.created`
+      `[${correlationId}] order.created`
     );
 
     return order;

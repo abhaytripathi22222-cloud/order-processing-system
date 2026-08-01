@@ -25,7 +25,7 @@ await channel.bindQueue(
   "inventory.released"
 );
 
-  console.log("✅ RabbitMQ Connected");
+  console.log("RabbitMQ Connected");
 }
 
 export function getChannel(): Channel {

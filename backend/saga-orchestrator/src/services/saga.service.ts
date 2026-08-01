@@ -4,7 +4,7 @@ export class SagaService {
 
   inventoryReserved(event: any) {
     console.log("================================");
-    console.log(`[${event.correlationId}] ✅ Saga -> Inventory Reserved`);
+    console.log(`[${event.correlationId}] Saga => Inventory Reserved`);
     console.log(event.orderNumber);
     console.log("Waiting for Payment");
     console.log("================================");
@@ -12,7 +12,7 @@ export class SagaService {
 
   paymentCompleted(event: any) {
     console.log("================================");
-    console.log(`[${event.correlationId}] 💳 Saga -> Payment Completed`);
+    console.log(`[${event.correlationId}] Saga => Payment Completed`);
     console.log(event.orderNumber);
     console.log("Waiting for Shipment");
     console.log("================================");
@@ -20,7 +20,7 @@ export class SagaService {
 
   paymentFailed(event: any) {
     console.log("================================");
-    console.log(`[${event.correlationId}] ❌ Saga -> Payment Failed`);
+    console.log(`[${event.correlationId}] Saga => Payment Failed`);
     console.log(event.orderNumber);
     console.log("Publishing inventory.release");
     console.log("================================");
@@ -43,15 +43,15 @@ export class SagaService {
     );
 
     console.log(
-      `[${event.correlationId}] 📤 inventory.release published`
+      `[${event.correlationId}] inventory.release published`
     );
   }
 
   shipmentCreated(event: any) {
     console.log("================================");
-    console.log(`[${event.correlationId}] 🚚 Saga -> Shipment Created`);
+    console.log(`[${event.correlationId}] Saga => Shipment Created`);
     console.log(event.orderNumber);
-    console.log("🎉 ORDER COMPLETED");
+    console.log("ORDER COMPLETED");
     console.log("================================");
   }
 }

@@ -12,7 +12,7 @@ async function bootstrap() {
   await startShippingConsumer();
 
   app.listen(PORT, () => {
-    console.log(`🚀 Shipping Service running on ${PORT}`);
+    console.log(`Shipping Service running on ${PORT}`);
   });
 }
 

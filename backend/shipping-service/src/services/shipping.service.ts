@@ -5,7 +5,7 @@ export class ShippingService {
 
   async ship(payment: any) {
     console.log(
-      `[${payment.correlationId}] 🚚 Shipping`
+      `[${payment.correlationId}] Shipping`
     );
 
     const shipment = await this.repository.createShipment({

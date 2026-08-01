@@ -53,7 +53,7 @@ export async function connectRabbitMQ() {
   // );
   
 
-  console.log("✅ Saga RabbitMQ Connected");
+  console.log("Saga RabbitMQ Connected");
 }
 
 export function getChannel() {

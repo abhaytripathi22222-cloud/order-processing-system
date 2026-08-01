@@ -21,5 +21,5 @@ export async function startShippingConsumer() {
     }
   });
 
-  console.log("👂 Shipping Consumer Started");
+  console.log("Shipping Consumer Started");
 }

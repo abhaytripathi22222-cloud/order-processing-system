@@ -11,7 +11,7 @@ export async function startInventoryConsumer() {
 
     try {
       console.log("================================");
-      console.log("📩 Message received");
+      console.log("Message received");
 
       const routingKey = msg.fields.routingKey;
       const event = JSON.parse(msg.content.toString());
@@ -21,12 +21,12 @@ export async function startInventoryConsumer() {
 
       // Process only inventory.released events
       if (routingKey !== "inventory.released") {
-        console.log("⚠ Ignoring:", routingKey);
+        console.log("Ignoring:", routingKey);
         channel.ack(msg);
         return;
       }
 
-      console.log("♻ Inventory Released Event");
+      console.log("Inventory Released Event");
 
       const updatedOrder = await prisma.order.update({
         where: {
@@ -37,7 +37,7 @@ export async function startInventoryConsumer() {
         },
       });
 
-      console.log("✅ Order Cancelled");
+      console.log("Order Cancelled");
       console.log(updatedOrder);
 
       channel.publish(
@@ -49,7 +49,7 @@ export async function startInventoryConsumer() {
         }
       );
 
-      console.log("📤 order.cancelled published");
+      console.log("order.cancelled published");
       console.log("================================");
 
       // Success
@@ -57,7 +57,7 @@ export async function startInventoryConsumer() {
 
     } catch (err: any) {
       console.error("================================");
-      console.error("❌ Consumer Error");
+      console.error("Consumer Error");
       console.error("Message:", err.message);
       console.error("Code:", err.code);
       console.error("Meta:", err.meta);
@@ -69,5 +69,5 @@ export async function startInventoryConsumer() {
     }
   });
 
-  console.log("👂 Inventory Release Consumer Started");
+  console.log("Inventory Release Consumer Started");
 }
